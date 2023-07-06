@@ -1,0 +1,72 @@
+.App {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	font-family: Arial, sans-serif;
+	background-color: #f5f5f5;
+}
+
+h2 {
+	margin-top: 2rem;
+	font-size: 2rem;
+	color: #333;
+}
+
+p {
+	margin-top: 1rem;
+	font-size: 1.2rem;
+	color: #666;
+}
+
+.letter-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: 2rem;
+}
+
+.letter-list span {
+	display: inline-block;
+	padding: 0.5rem;
+	margin: 0.5rem;
+	font-size: 1.5rem;
+	font-weight: bold;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.letter-list span:hover {
+	background-color: #f5f5f5;
+}
+
+#img-modal img {
+	max-width: 90%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+#img-modal .close-modal {
+	position: absolute;
+	top: 0;
+	right: 2rem;
+}
+
+button {
+	margin-top: 1rem;
+	padding: 0.5rem 1rem;
+	background-color: #333;
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+#img-model .close-modal:hover {
+	background-color: #666;
+}
