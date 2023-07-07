@@ -69,13 +69,12 @@ function Exercise() {
 		const storage = localStorage.getItem(storageKey);
 		if (!storage) return;
 		const parsedStorage: number[] = JSON.parse(storage) as number[];
-		
+
 		// check if the exercise has already been added to the storage
 		if (parsedStorage.includes(idOfExercise)) return;
 
 		const newStorage = [...parsedStorage, idOfExercise];
 		localStorage.setItem(storageKey, JSON.stringify(newStorage));
-
 	}
 
 	function removeFromOtherStorage(result: boolean, idOfExercise: number) {
@@ -83,12 +82,17 @@ function Exercise() {
 		const otherStorage = localStorage.getItem(otherStorageKey);
 
 		if (!otherStorage) return;
-		const parsedOtherStorage: number[] = JSON.parse(otherStorage) as number[];
+		const parsedOtherStorage: number[] = JSON.parse(
+			otherStorage
+		) as number[];
 
 		const index = parsedOtherStorage.indexOf(idOfExercise);
 		if (index > -1) {
 			parsedOtherStorage.splice(index, 1);
-			localStorage.setItem(otherStorageKey, JSON.stringify(parsedOtherStorage));
+			localStorage.setItem(
+				otherStorageKey,
+				JSON.stringify(parsedOtherStorage)
+			);
 		}
 	}
 
