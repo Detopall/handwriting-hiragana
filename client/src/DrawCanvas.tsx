@@ -12,7 +12,7 @@ function DrawCanvas() {
 		if (!context.current) return;
 
 		context.current.strokeStyle = "black";
-		context.current.lineWidth = 10;
+		context.current.lineWidth = 25;
 		context.current.lineJoin = "round";
 		context.current.lineCap = "round";
 

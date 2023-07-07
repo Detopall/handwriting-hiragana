@@ -9,6 +9,9 @@ tensorflow = "*"
 pandas = "*"
 scikit-learn = "*"
 matplotlib = "*"
+pillow = "*"
+uvicorn = "*"
+fastapi = "*"
 
 [dev-packages]
 ipykernel = "*"

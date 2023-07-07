@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import DrawCanvas from "./DrawCanvas";
+import hiraganaData from "./hiragana.json";
 
 function Exercise() {
 	const { letter } = useParams();
@@ -8,7 +9,7 @@ function Exercise() {
 	if (!letter) navigate("/");
 
 	function handleGoBack() {
-		navigate(-1);
+		navigate("/");
 	}
 
 	function clearCanvas() {
@@ -19,15 +20,21 @@ function Exercise() {
 		context.clearRect(0, 0, canvas.width, canvas.height);
 	}
 
-	function sendPrediction(): void {
+	function sendPrediction() {
 		const canvas = document.querySelector("canvas");
 		if (!canvas) return;
 		const image = canvas.toDataURL("image/png");
-		
-		fetch("http://localhost:3000/predict", {
+		if (!letter) return;
+
+		const classValue = hiraganaData[letter as keyof typeof hiraganaData];
+
+		fetch("http://localhost:8000/predict", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ image: image }),
+			body: JSON.stringify({
+				image: { image: image },
+				class: classValue,
+			}),
 		})
 			.then((response) => response.json())
 			.then((data) => {
