@@ -3,7 +3,9 @@ import hiraganaData from "./hiragana.json";
 function LetterList() {
 	function handleClick(event: React.MouseEvent<HTMLSpanElement, MouseEvent>) {
 		const target = event.target as HTMLSpanElement;
-		console.log(target.id);
+		const letter = target.innerHTML;
+
+		window.location.href = `/letters/${letter}`;
 	}
 
 	return (
