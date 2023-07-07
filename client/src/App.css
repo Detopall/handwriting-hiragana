@@ -122,3 +122,7 @@ button:hover {
 .exercise-buttons-container button {
 	margin: 0 1rem;
 }
+
+canvas {
+	background-color: white;
+}
