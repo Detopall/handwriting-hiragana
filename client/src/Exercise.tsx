@@ -19,8 +19,23 @@ function Exercise() {
 		context.clearRect(0, 0, canvas.width, canvas.height);
 	}
 
-	function sendPrediction() {
-		return "";
+	function sendPrediction(): void {
+		const canvas = document.querySelector("canvas");
+		if (!canvas) return;
+		const image = canvas.toDataURL("image/png");
+		
+		fetch("http://localhost:3000/predict", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({ image: image }),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+			})
+			.catch((error) => {
+				console.error("Prediction request error:", error);
+			});
 	}
 
 	return (
